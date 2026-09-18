@@ -86,7 +86,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
           <div className="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 py-2 border border-[var(--border-default)] bg-[var(--bg-surface)] text-xs sm:text-sm font-mono uppercase tracking-wider text-[var(--text-muted)]">
             <span className="font-bold text-[var(--text-primary)]">B.Tech AI &amp; ML</span>
             <span className="text-[var(--text-faint)]">•</span>
-            <span className="text-[var(--accent-secondary)] font-bold">Honors: FinTech</span>
+            <span className="text-[var(--accent-secondary)] font-bold">AI &amp; Data Systems</span>
             <span className="text-[var(--text-faint)]">•</span>
             <span className="text-[var(--accent-primary)] font-bold">CGPA: 8.3</span>
           </div>
@@ -101,7 +101,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
             </span>
             ,{" "}
             <span className="font-semibold text-[var(--text-primary)] underline decoration-[var(--accent-primary)] underline-offset-8">
-              finance
+              data analytics
             </span>{" "}
             and{" "}
             <span className="font-semibold text-[var(--text-primary)] underline decoration-[var(--accent-secondary)] underline-offset-8">
@@ -187,7 +187,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
                   <span>DJSCE — Mumbai</span>
                 </div>
                 <div className="text-xs font-mono text-[var(--text-muted)] font-medium">
-                  B.Tech AI/ML · FinTech Honors · 8.3 CGPA
+                  B.Tech AI/ML · DJSCE · 8.3 CGPA
                 </div>
               </div>
 
@@ -220,7 +220,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
             <div className="space-y-4">
               <p className="text-xl sm:text-2xl font-light text-[var(--text-primary)] leading-snug tracking-tight">
                 Great intelligent systems deserve architectures as rigorous as the models behind them.
-                Specialized in combining predictive machine learning workflows with quantitative FinTech systems.
+                Focused on machine learning, predictive data analytics, and modern full-stack systems.
               </p>
               <p className="text-base sm:text-lg font-light text-[var(--text-muted)] leading-relaxed">
                 {PERSONAL_INFO.bioHeadline}

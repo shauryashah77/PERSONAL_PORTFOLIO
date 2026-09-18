@@ -24,16 +24,17 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Shaurya Shah — AI & Machine Learning × FinTech",
+  title: "Shaurya Shah — Artificial Intelligence & Machine Learning",
   description:
-    "Personal portfolio of Shaurya Shah. B.Tech Artificial Intelligence & Machine Learning student at DJSCE with Honors in FinTech. Building at the intersection of technology, finance and intelligent systems.",
+    "Personal portfolio of Shaurya Shah. B.Tech Artificial Intelligence & Machine Learning student at Dwarkadas J. Sanghvi College of Engineering (DJSCE). Engineering intelligent computational systems, data analytics, and scalable full-stack applications.",
   keywords: [
     "Shaurya Shah",
     "Shaurya",
     "Portfolio",
     "Artificial Intelligence",
     "Machine Learning",
-    "FinTech",
+    "Data Analytics",
+    "DeepSeek-R1",
     "FinSight",
     "DJSCE",
     "FastAPI",

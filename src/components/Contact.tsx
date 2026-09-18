@@ -156,7 +156,7 @@ export default function Contact() {
           <div className="flex items-center gap-4">
             <span className="text-[var(--text-primary)] font-bold">SHAURYA SHAH</span>
             <span className="text-[var(--text-faint)]">|</span>
-            <span className="text-[var(--text-secondary)]">AI / ML × FINTECH</span>
+            <span className="text-[var(--text-secondary)]">AI &amp; MACHINE LEARNING</span>
             <span className="text-[var(--text-faint)]">|</span>
             <span className="text-[var(--accent-primary)] font-bold">DJSCE</span>
           </div>

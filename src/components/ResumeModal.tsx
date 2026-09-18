@@ -157,7 +157,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                           Dwarkadas J. Sanghvi College of Engineering
                         </div>
                         <div className="text-xs text-[var(--text-muted)] font-light">
-                          Bachelor of Technology, Artificial Intelligence and Machine Learning &mdash; <span className="text-[var(--text-primary)] font-mono font-bold">GPA: 8.3</span> (Honors: FinTech)
+                          Bachelor of Technology, Artificial Intelligence and Machine Learning &mdash; <span className="text-[var(--text-primary)] font-mono font-bold">GPA: 8.3</span>
                         </div>
                       </div>
                       <div className="text-xs font-mono text-[var(--text-faint)]">
@@ -229,11 +229,11 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   </h2>
                   <div className="space-y-2">
                     <div className="text-sm font-semibold text-[var(--text-primary)]">
-                      FinSight &mdash; <span className="text-xs font-light text-[var(--text-muted)]">Personal Financial Behaviour Analysis Platform</span>
+                      FinSight &mdash; <span className="text-xs font-light text-[var(--text-muted)]">Intelligent Statement Analytics &amp; Behavioral Intelligence Platform</span>
                     </div>
                     <ul className="space-y-1.5 text-xs text-[var(--text-secondary)] list-disc list-inside font-light">
-                      <li>Built a full-stack financial web app using Next.js, TypeScript, and FastAPI, featuring JWT authentication and automated CSV statement parsing.</li>
-                      <li>Integrated Google Gemini API to generate personalized financial advice and saving recommendations based on actual spending habits and user savings goals.</li>
+                      <li>Built a full-stack data analytics web app using Next.js, TypeScript, and FastAPI, featuring JWT authentication and automated CSV statement parsing.</li>
+                      <li>Integrated DeepSeek-R1 reasoning engine to generate personalized behavioral insights and predictive trend analysis based on user transaction datasets.</li>
                     </ul>
                   </div>
                 </div>

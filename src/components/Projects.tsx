@@ -26,7 +26,7 @@ export default function Projects() {
             </h2>
           </div>
           <p className="text-sm sm:text-base font-mono text-[var(--text-muted)] max-w-md leading-relaxed uppercase">
-            Full-stack AI financial telemetry engine. Built on Next.js, FastAPI, Python, and Google Gemini API.
+            Full-stack AI analytics &amp; telemetry engine. Built on Next.js, FastAPI, Python, and DeepSeek-R1 reasoning engine.
           </p>
         </div>
 
@@ -152,12 +152,12 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* Simulated Gemini AI Reasoning Output */}
+              {/* Simulated DeepSeek-R1 Reasoning Output */}
               <div className="p-5 border border-[var(--border-default)] bg-[var(--bg-surface)] space-y-3 text-xs sm:text-sm shadow-inner">
                 <div className="flex items-center justify-between text-xs text-[var(--text-muted)] border-b border-[var(--border-subtle)] pb-2.5">
                   <span className="flex items-center gap-2 text-[var(--text-primary)] font-bold">
                     <Cpu className="w-4 h-4 text-[var(--accent-secondary)]" />
-                    GEMINI REASONING PIPELINE
+                    DEEPSEEK-R1 REASONING ENGINE
                   </span>
                   <span className="text-xs text-[var(--accent-primary)] font-semibold font-mono px-2 py-0.5 border border-[var(--border-active)]">
                     STREAMING
@@ -165,20 +165,20 @@ export default function Projects() {
                 </div>
                 <div className="space-y-2 text-xs sm:text-sm font-mono leading-relaxed">
                   <div className="text-[var(--text-faint)]">
-                    &gt; Parsing statement_q3.csv (1,482 records normalized)
+                    &gt; Parsing records_dataset.csv (1,482 entries normalized via Pandas)
                   </div>
                   <div className="text-[var(--text-faint)]">
-                    &gt; Anomaly score: discretionary spend delta +24.6%
+                    &gt; Feature extraction &amp; semantic vector clustering completed in 94ms
                   </div>
                   <div className="text-[var(--text-secondary)] border-l-2 border-[var(--border-active)] pl-3 mt-2.5 font-normal">
-                    &gt; Gemini Recommendation: &ldquo;High-frequency micro-leakages detected in food &amp; dining. Redirecting 14% towards monthly SIP reserve target.&rdquo;
+                    &gt; DeepSeek-R1 Synthesis: &ldquo;Identified 4 multi-dimensional behavioral clusters. Outlier variance detected (+24.6% in discretionary categories); generated predictive optimization trajectory.&rdquo;
                   </div>
                 </div>
               </div>
 
               {/* Telemetry Footer */}
               <div className="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between text-xs sm:text-sm text-[var(--text-faint)] uppercase tracking-widest font-semibold">
-                <span>FastAPI + Gemini 1.5</span>
+                <span>FastAPI + DeepSeek-R1</span>
                 <span className="text-[var(--accent-primary)] font-bold">JWT: ENABLED</span>
               </div>
             </div>
