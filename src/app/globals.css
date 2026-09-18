@@ -1,0 +1,525 @@
+@import "tailwindcss";
+
+/* ========================================================
+   DESIGN TOKENS & SYSTEM VARIABLES
+======================================================== */
+
+:root {
+  /* ======================================================
+     THEME 1: DARK MODE (Monolog Obsidian Monochrome)
+     Pure Black, Crisp White & Refined Titanium Silver.
+     STRICTLY NO RED OR BLUE IN DARK MODE!
+  ====================================================== */
+  --bg-page: #070709;
+  --bg-main: var(--bg-page);
+  --fg-main: var(--text-primary);
+  --bg-surface: rgba(255, 255, 255, 0.03);
+  --bg-surface-hover: rgba(255, 255, 255, 0.07);
+  --bg-surface-active: rgba(255, 255, 255, 0.1);
+  --bg-terminal: #0a0a0d;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #e4e4e7;
+  --text-muted: #a1a1aa;
+  --text-faint: #71717a;
+  --text-inverse: #070709;
+
+  /* Monochrome accents exclusively in dark mode */
+  --accent-primary: #ffffff;
+  --accent-secondary: #e4e4e7;
+  --accent-highlight: #ffffff;
+  --bracket-color: #ffffff;
+  --live-dot-color: #ffffff;
+
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-default: rgba(255, 255, 255, 0.2);
+  --border-strong: rgba(255, 255, 255, 0.45);
+  --border-active: #ffffff;
+
+  --liquid-glass-bg: rgba(16, 16, 20, 0.65);
+  --liquid-glass-bg-hover: rgba(26, 26, 34, 0.8);
+  --liquid-glass-bg-active: rgba(36, 36, 48, 0.9);
+  --liquid-glass-border: rgba(255, 255, 255, 0.16);
+  --liquid-glass-border-hover: rgba(255, 255, 255, 0.4);
+  --liquid-glass-border-active: #ffffff;
+  --liquid-glass-specular: inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+  --liquid-glass-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7);
+
+  --btn-solid-bg: #ffffff;
+  --btn-solid-fg: #070709;
+  --btn-solid-hover: #e4e4e7;
+  --btn-glass-bg: rgba(255, 255, 255, 0.05);
+  --btn-glass-fg: #ffffff;
+
+  --indicator-bg: #ffffff;
+  --indicator-fg: #000000;
+  --sheen-gradient: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+}
+
+/* ========================================================
+   THEME 2: LIGHT MODE (True Red, Royal Cobalt Blue & Pure White)
+   Vivid True Scarlet Red (#d90429, zero orange!), Royal Navy & Cobalt (#0a1128, #1d4ed8),
+   and Crisp Frosted Porcelain White (#ffffff).
+======================================================== */
+html.theme-light,
+html[data-theme="light"] {
+  --bg-page: #ffffff;
+  --bg-main: var(--bg-page);
+  --fg-main: var(--text-primary);
+  --bg-surface: rgba(255, 255, 255, 0.92);
+  --bg-surface-hover: #ffffff;
+  --bg-surface-active: #ffffff;
+  --bg-terminal: #ffffff;
+
+  --text-primary: #0a1128;
+  --text-secondary: #1e3a8a;
+  --text-muted: #334155;
+  --text-faint: #64748b;
+  --text-inverse: #ffffff;
+
+  /* True Vivid Red & Royal Blue exclusively in light mode */
+  --accent-primary: #d90429;      /* True, deep crimson scarlet red - ZERO ORANGE */
+  --accent-secondary: #1d4ed8;    /* Royal Cobalt Blue */
+  --accent-highlight: #d90429;
+  --bracket-color: #d90429;
+  --live-dot-color: #d90429;
+
+  --border-subtle: rgba(30, 58, 138, 0.12);
+  --border-default: rgba(30, 58, 138, 0.22);
+  --border-strong: #1d4ed8;
+  --border-active: #d90429;
+
+  --liquid-glass-bg: rgba(255, 255, 255, 0.92);
+  --liquid-glass-bg-hover: rgba(255, 255, 255, 0.98);
+  --liquid-glass-bg-active: #ffffff;
+  --liquid-glass-border: rgba(29, 78, 216, 0.22);
+  --liquid-glass-border-hover: rgba(217, 4, 41, 0.5);
+  --liquid-glass-border-active: #d90429;
+  --liquid-glass-specular: inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+  --liquid-glass-shadow: 0 20px 45px -10px rgba(10, 17, 40, 0.08), 0 2px 8px rgba(217, 4, 41, 0.04);
+
+  --btn-solid-bg: #d90429;
+  --btn-solid-fg: #ffffff;
+  --btn-solid-hover: #b91c1c;
+  --btn-glass-bg: rgba(29, 78, 216, 0.06);
+  --btn-glass-fg: #1d4ed8;
+
+  --indicator-bg: #d90429;
+  --indicator-fg: #ffffff;
+  --sheen-gradient: linear-gradient(135deg, rgba(29,78,216,0.18) 0%, rgba(217,4,41,0.12) 100%);
+}
+
+/* ========================================================
+   THEME 3: COLOR MODE (Cyber-Luxury Aurora Borealis)
+   Deep Midnight Space (#030712) with Luminous Emerald (#10b981),
+   Electric Cyan (#06b6d4) & Twilight Indigo (#6366f1).
+   NO PINK, NO MUDDY COLORS!
+======================================================== */
+html.theme-color,
+html[data-theme="color"] {
+  --bg-page: #030712;
+  --bg-main: var(--bg-page);
+  --fg-main: var(--text-primary);
+  --bg-surface: rgba(16, 185, 129, 0.06);
+  --bg-surface-hover: rgba(6, 182, 212, 0.12);
+  --bg-surface-active: rgba(16, 185, 129, 0.18);
+  --bg-terminal: #070d1e;
+
+  --text-primary: #ffffff;
+  --text-secondary: #f0fdf4;
+  --text-muted: #a7f3d0;
+  --text-faint: #6ee7b7;
+  --text-inverse: #021410;
+
+  /* Aurora Emerald & Cyan */
+  --accent-primary: #10b981;
+  --accent-secondary: #06b6d4;
+  --accent-highlight: #34d399;
+  --bracket-color: #34d399;
+  --live-dot-color: #10b981;
+
+  --border-subtle: rgba(16, 185, 129, 0.25);
+  --border-default: rgba(6, 182, 212, 0.4);
+  --border-strong: #06b6d4;
+  --border-active: #10b981;
+
+  --liquid-glass-bg: rgba(6, 14, 28, 0.72);
+  --liquid-glass-bg-hover: rgba(8, 20, 42, 0.85);
+  --liquid-glass-bg-active: rgba(12, 28, 56, 0.92);
+  --liquid-glass-border: rgba(16, 185, 129, 0.35);
+  --liquid-glass-border-hover: rgba(6, 182, 212, 0.75);
+  --liquid-glass-border-active: #10b981;
+  --liquid-glass-specular: inset 0 1px 2px 0 rgba(52, 211, 153, 0.35);
+  --liquid-glass-shadow: 0 20px 50px -10px rgba(6, 182, 212, 0.25);
+
+  --btn-solid-bg: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  --btn-solid-fg: #021410;
+  --btn-solid-hover: linear-gradient(135deg, #34d399 0%, #22d3ee 100%);
+  --btn-glass-bg: rgba(6, 182, 212, 0.12);
+  --btn-glass-fg: #34d399;
+
+  --indicator-bg: #10b981;
+  --indicator-fg: #021410;
+  --sheen-gradient: linear-gradient(135deg, rgba(16,185,129,0.3) 0%, rgba(6,182,212,0) 60%);
+}
+
+/* ========================================================
+   BASE LAYOUT & DEFAULTS
+======================================================== */
+html {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  transition: background-color 0.35s ease, color 0.35s ease;
+  min-height: 100vh;
+}
+
+/* Light Mode Subtle Blue/Red Ambient Atmosphere */
+html.theme-light body {
+  background: 
+    radial-gradient(circle at 10% 5%, rgba(29, 78, 216, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 15%, rgba(217, 4, 41, 0.035) 0%, transparent 40%),
+    radial-gradient(circle at 50% 60%, rgba(29, 78, 216, 0.025) 0%, transparent 50%),
+    #ffffff;
+  background-attachment: fixed;
+}
+
+/* Cyber Aurora Ambient Atmosphere in Color Mode */
+html.theme-color body {
+  background: 
+    radial-gradient(circle at 15% 10%, rgba(16, 185, 129, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.22) 0%, transparent 50%),
+    radial-gradient(circle at 50% 60%, rgba(99, 102, 241, 0.16) 0%, transparent 55%),
+    radial-gradient(circle at 20% 85%, rgba(16, 185, 129, 0.18) 0%, transparent 45%),
+    #030712;
+  background-attachment: fixed;
+}
+
+/* Cyber Aurora Typography in Color Mode */
+html.theme-color h1,
+html.theme-color h2,
+html.theme-color .rainbow-title {
+  background: linear-gradient(135deg, #ffffff 0%, #34d399 35%, #38bdf8 70%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.25));
+}
+
+/* ========================================================
+   LIQUID GLASS & FLUIDITY CORE UTILITIES
+======================================================== */
+
+.liquid-glass {
+  background: var(--liquid-glass-bg);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid var(--liquid-glass-border);
+  box-shadow: var(--liquid-glass-shadow), var(--liquid-glass-specular);
+  position: relative;
+  transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass:hover {
+  background: var(--liquid-glass-bg-hover);
+  border-color: var(--liquid-glass-border-hover);
+}
+
+.liquid-glass-active {
+  background: var(--liquid-glass-bg-active) !important;
+  backdrop-filter: blur(32px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(32px) saturate(200%) !important;
+  border-color: var(--border-active) !important;
+  box-shadow: var(--liquid-glass-shadow), var(--liquid-glass-specular), 0 0 35px rgba(255, 255, 255, 0.12) !important;
+}
+
+html.theme-light .liquid-glass-active {
+  border-color: var(--accent-primary) !important;
+  box-shadow: var(--liquid-glass-shadow), var(--liquid-glass-specular), 0 10px 30px rgba(217, 4, 41, 0.14) !important;
+}
+
+html.theme-color .liquid-glass-active {
+  border-color: var(--accent-primary) !important;
+  box-shadow: var(--liquid-glass-shadow), var(--liquid-glass-specular), 0 0 40px rgba(16, 185, 129, 0.35) !important;
+}
+
+/* Liquid Sheen Shimmer Effect on Cards */
+.liquid-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-sheen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  transition: transform 0.8s ease;
+}
+
+html.theme-light .liquid-sheen::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(29, 78, 216, 0.08) 30%,
+    rgba(217, 4, 41, 0.08) 70%,
+    transparent 100%
+  );
+}
+
+html.theme-color .liquid-sheen::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(52, 211, 153, 0.18) 50%,
+    transparent 100%
+  );
+}
+
+.liquid-sheen:hover::after {
+  transform: translateX(200%);
+}
+
+/* Liquid Pill / Badge */
+.liquid-pill {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-pill:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--border-strong);
+}
+
+/* Solid CTA Button */
+.btn-solid {
+  background: var(--btn-solid-bg) !important;
+  color: var(--btn-solid-fg) !important;
+  border: 2px solid var(--border-active);
+  font-weight: 700;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-solid:hover {
+  filter: brightness(0.92);
+  transform: translateY(-1px);
+}
+
+/* Glass CTA Button */
+.btn-glass {
+  background: var(--btn-glass-bg) !important;
+  color: var(--btn-glass-fg) !important;
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-glass:hover {
+  border-color: var(--border-active);
+  background: var(--bg-surface-hover) !important;
+  transform: translateY(-1px);
+}
+
+/* Active Indicator Badge */
+.active-indicator {
+  background: var(--indicator-bg) !important;
+  color: var(--indicator-fg) !important;
+  border: 2px solid var(--border-active);
+}
+
+/* Terminal Container */
+.terminal-stage {
+  background: var(--bg-terminal);
+  border: 2px solid var(--border-default);
+  box-shadow: var(--liquid-glass-shadow);
+  color: var(--text-primary);
+}
+
+/* ========================================================
+   LIGHT MODE TOTAL CONTRAST OVERRIDES
+   Guarantees 100% text legibility and rich borders in Light Mode
+======================================================== */
+html.theme-light,
+html[data-theme="light"] {
+  color: #0a1128 !important;
+}
+
+/* Text overrides in light mode */
+html.theme-light .text-white,
+html[data-theme="light"] .text-white {
+  color: #0a1128 !important;
+}
+
+html.theme-light .text-zinc-100,
+html[data-theme="light"] .text-zinc-100 {
+  color: #1e3a8a !important;
+}
+
+html.theme-light .text-zinc-200,
+html[data-theme="light"] .text-zinc-200 {
+  color: #1e293b !important;
+}
+
+html.theme-light .text-zinc-300,
+html[data-theme="light"] .text-zinc-300 {
+  color: #334155 !important;
+}
+
+html.theme-light .text-zinc-400,
+html[data-theme="light"] .text-zinc-400 {
+  color: #475569 !important;
+}
+
+html.theme-light .text-zinc-500,
+html[data-theme="light"] .text-zinc-500 {
+  color: #64748b !important;
+}
+
+/* Border overrides in light mode */
+html.theme-light .border-white,
+html.theme-light .border-white\/40,
+html.theme-light .border-white\/30,
+html.theme-light .border-white\/20,
+html.theme-light .border-white\/15,
+html[data-theme="light"] .border-white,
+html[data-theme="light"] .border-white\/40,
+html[data-theme="light"] .border-white\/30,
+html[data-theme="light"] .border-white\/20,
+html[data-theme="light"] .border-white\/15 {
+  border-color: rgba(30, 58, 138, 0.28) !important;
+}
+
+html.theme-light .border-white\/10,
+html.theme-light .border-white\/5,
+html.theme-light .border-white\/\[0\.08\],
+html.theme-light .border-white\/\[0\.1\],
+html.theme-light .border-white\/\[0\.12\],
+html[data-theme="light"] .border-white\/10,
+html[data-theme="light"] .border-white\/5,
+html[data-theme="light"] .border-white\/\[0\.08\],
+html[data-theme="light"] .border-white\/\[0\.1\],
+html[data-theme="light"] .border-white\/\[0\.12\] {
+  border-color: rgba(30, 58, 138, 0.15) !important;
+}
+
+/* Subtle background fills in light mode */
+html.theme-light .bg-white\/\[0\.01\],
+html.theme-light .bg-white\/\[0\.02\],
+html.theme-light .bg-white\/\[0\.03\],
+html.theme-light .bg-white\/\[0\.04\],
+html.theme-light .bg-white\/\[0\.05\],
+html.theme-light .bg-white\/\[0\.06\],
+html.theme-light .bg-white\/\[0\.08\],
+html[data-theme="light"] .bg-white\/\[0\.01\],
+html[data-theme="light"] .bg-white\/\[0\.02\],
+html[data-theme="light"] .bg-white\/\[0\.03\],
+html[data-theme="light"] .bg-white\/\[0\.04\],
+html[data-theme="light"] .bg-white\/\[0\.05\],
+html[data-theme="light"] .bg-white\/\[0\.06\],
+html[data-theme="light"] .bg-white\/\[0\.08\] {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Inverted text exceptions (inside dark elements in light mode) */
+html.theme-light .theme-invert-text,
+html.theme-light .theme-invert-text *,
+html[data-theme="light"] .theme-invert-text,
+html[data-theme="light"] .theme-invert-text *,
+html.theme-light .btn-solid,
+html.theme-light .btn-solid *,
+html[data-theme="light"] .btn-solid,
+html[data-theme="light"] .btn-solid *,
+html.theme-light .active-indicator,
+html.theme-light .active-indicator *,
+html[data-theme="light"] .active-indicator,
+html[data-theme="light"] .active-indicator * {
+  color: #ffffff !important;
+}
+
+/* Tactile subtle grain texture */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity: 0.8;
+}
+
+html.theme-light .grain-overlay {
+  opacity: 0.12;
+  filter: invert(1);
+}
+
+html.theme-color .grain-overlay {
+  opacity: 0.35;
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+
+html.theme-light ::-webkit-scrollbar-thumb {
+  background: #93c5fd;
+}
+
+html.theme-color ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #10b981, #06b6d4, #6366f1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 18s linear infinite;
+}
